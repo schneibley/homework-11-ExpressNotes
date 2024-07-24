@@ -1,4 +1,3 @@
-API Routes (apiRoutes.js):
 
 const express = require('express');
 const router = express.Router();
@@ -16,10 +15,12 @@ const writeNotes = (notes) => {
   fs.writeFileSync(path.join(__dirname, '../db/db.json'), JSON.stringify(notes));
 };
 
+
 router.get('/', (req, res) => {
   const notes = readNotes();
   res.json(notes);
 });
+
 
 router.post('/', (req, res) => {
   const newNote = {
@@ -45,4 +46,3 @@ router.delete('/:id', (req, res) => {
 });
 
 module.exports = router;
-
